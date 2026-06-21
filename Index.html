@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>👑 Princess Pari - Gold Premium Edition</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+    overflow:hidden;
+}
+
+/* Stars Background */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:
+    radial-gradient(white 1px, transparent 1px);
+    background-size:40px 40px;
+    animation:twinkle 4s infinite;
+    z-index:-1;
+}
+
+@keyframes twinkle{
+    50%{
+        opacity:0.5;
+    }
+}
+
+
+/* Loading Screen */
+
+#loading{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.loading-text{
+    color:#FFD700;
+    font-size:28px;
+    text-align:center;
+    padding:20px;
+    text-shadow:0 0 20px gold;
+}
+
+
+.loader{
+    width:80%;
+    max-width:400px;
+    height:12px;
+    background:#222;
+    border-radius:50px;
+    overflow:hidden;
+    box-shadow:0 0 20px gold;
+}
+
+
+.progress{
+    height:100%;
+    width:0%;
+    background:
+    linear-gradient(
+    90deg,
+    #FFD700,
+    #ff9900
+    );
+
+    animation:
+    load 5s forwards;
+}
+
+
+@keyframes load{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+
+/* Main Screens */
+
+.screen{
+    min-height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+}
+
+/* Royal Welcome */
+
+.welcome-title{
+    font-size:55px;
+    color:#FFD700;
+    text-shadow:
+    0 0 10px #FFD700,
+    0 0 25px orange,
+    0 0 45px gold;
+    animation:goldGlow 2s infinite alternate;
+}
+
+
+@keyframes goldGlow{
+
+    from{
+        text-shadow:
+        0 0 10px gold;
+    }
+
+    to{
+        text-shadow:
+        0 0 40px orange,
+        0 0 60px gold;
+    }
+
+}
+
+
+.subtitle{
+
+    margin-top:25px;
+    font-size:22px;
+    color:#fff0c0;
+    max-width:650px;
+    line-height:1.6;
+}
+
+
+.magic-btn{
+
+    margin-top:40px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    45deg,
+    #FFD700,
+    #ff9900
+    );
+
+    color:#000;
+
+    box-shadow:
+    0 0 25px gold;
+
+    transition:0.4s;
+}
+
+
+.magic-btn:hover{
+
+    transform:
+    scale(1.08);
+
+    box-shadow:
+    0 0 45px gold;
+
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:600px){
+
+.welcome-title{
+    font-size:35px;
+}
+
+
+.subtitle{
+    font-size:18px;
+}
+
+
+.magic-btn{
+    font-size:16px;
+    padding:12px 25px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="stars"></div>
+
+
+<!-- Loading Screen -->
+
+<div id="loading">
+
+<div class="loading-text">
+✨ Preparing a magical surprise for someone special ✨
+</div>
+
+<div class="loader">
+<div class="progress"></div>
+</div>
+
+</div>
+
+
+<!-- Welcome Screen -->
+
+<div class="screen" id="welcome">
+
+<h1 class="welcome-title">
+👑 Princess Pari 👑
+</h1>
+
+
+<p class="subtitle">
+
+A magical journey is waiting for you...
+<br>
+A world filled with love, memories and beautiful surprises 💐🎀✨
+
+</p>
+
+
+<button class="magic-btn"
+onclick="openHeart()">
+
+Start The Magic ✨
+
+</button>
+
+</div>
+
+<!-- Heart Lock Screen -->
+
+<div class="screen" id="heartScreen">
+
+<h1 class="welcome-title">
+❤️ Secret Heart ❤️
+</h1>
+
+<p class="subtitle">
+Touch the magical heart and unlock a world made specially for Princess Pari 💗✨
+</p>
+
+<div class="heart-lock"
+onclick="openGift()">
+💗
+</div>
+
+<p class="subtitle">
+Tap the heart to reveal the surprise 🎀
+</p>
+
+</div>
+
+
+<style>
+.heart-lock{
+    font-size:90px;
+    cursor:pointer;
+    margin-top:30px;
+    animation:heartbeat 1.5s infinite;
+    filter: drop-shadow(0 0 25px #ff69b4);
+    transition:0.5s;
+}
+
+.heart-lock:hover{
+    transform:scale(1.2);
+}
+
+@keyframes heartbeat{
+
+    0%{
+        transform:scale(1);
+    }
+
+    25%{
+        transform:scale(1.15);
+    }
+
+    50%{
+        transform:scale(1);
+    }
+
+    75%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+</style>
+
+<!-- Gift Screen -->
+
+<div class="screen" id="giftScreen">
+
+<h1 class="welcome-title">
+🎁 Mystery Gift 🎁
+</h1>
+
+<p class="subtitle">
+A beautiful surprise is waiting inside this magical box 💐✨
+</p>
+
+<div class="gift-box" onclick="openBalloon()">
+🎁
+</div>
+
+<p class="subtitle">
+Tap the gift and discover the magic 🎀
+</p>
+
+</div>
+
+
+<!-- Balloon Celebration -->
+
+<div class="screen" id="balloonScreen">
+
+<div class="balloons">
+🎈 🎈 🎈 🎈 🎈
+</div>
+
+<h1 class="welcome-title">
+🎉 A Special Day 🎉
+</h1>
+
+<p class="subtitle">
+
+The world became more beautiful on the day Princess Pari came into this world 💗🌸✨
+
+</p>
+
+<button class="magic-btn" onclick="openGallery()">
+
+Continue The Journey 💐
+
+</button>
+
+</div>
+
+
+<style>
+
+/* Gift Animation */
+
+.gift-box{
+
+font-size:100px;
+cursor:pointer;
+margin-top:25px;
+
+animation:
+bounce 1.5s infinite;
+
+filter:
+drop-shadow(0 0 25px gold);
+
+transition:0.4s;
+
+}
+
+
+.gift-box:hover{
+
+transform:
+scale(1.15);
+
+}
+
+
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+
+/* Balloons */
+
+.balloons{
+
+font-size:55px;
+margin-bottom:25px;
+
+animation:
+float 3s infinite ease-in-out;
+
+}
+
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+
+50%{
+transform:translateY(-25px);
+}
+
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+</style>
+
+<!-- Memory Gallery -->
+
+<div class="screen" id="galleryScreen">
+
+<h1 class="welcome-title">
+📸 Beautiful Memories 📸
+</h1>
+
+<p class="subtitle">
+Every picture holds a moment that will stay forever 💐💗
+</p>
+
+<div class="gallery">
+
+<img src="pari1.jpg">
+<img src="pari2.jpg">
+<img src="pari3.jpg">
+
+</div>
+
+
+<button class="magic-btn" onclick="openLetter()">
+
+Open Secret Letter 💌
+
+</button>
+
+</div>
+
+
+
+<!-- Secret Letter -->
+
+<div class="screen" id="letterScreen">
+
+<div class="letter">
+
+<h1>
+💌 A Letter For You 💌
+</h1>
+
+<p class="letter-text">
+
+Some people enter our life like a beautiful blessing 🌸💗
+
+Your smile, your kindness and your happiness make this world more beautiful ✨
+
+May every dream you have shine brighter than the stars above 🌟
+
+Happy Birthday Princess Pari 👑💐
+
+</p>
+
+</div>
+
+
+<button class="magic-btn" onclick="openCake()">
+
+Continue The Magic ✨
+
+</button>
+
+</div>
+
+
+
+<style>
+
+/* Photo Gallery */
+
+.gallery{
+
+display:flex;
+gap:20px;
+margin-top:30px;
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+
+.gallery img{
+
+width:220px;
+height:280px;
+object-fit:cover;
+
+border-radius:25px;
+
+border:4px solid gold;
+
+box-shadow:
+0 0 25px gold;
+
+
+animation:
+zoomPhoto 3s infinite;
+
+}
+
+
+@keyframes zoomPhoto{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+}
+
+
+/* Secret Letter */
+
+.letter{
+
+background:
+rgba(255,215,0,0.15);
+
+padding:30px;
+
+border-radius:25px;
+
+max-width:700px;
+
+border:2px solid gold;
+
+box-shadow:
+0 0 35px gold;
+
+}
+
+
+.letter h1{
+
+color:#FFD700;
+
+margin-bottom:20px;
+
+}
+
+
+.letter-text{
+
+font-size:22px;
+
+line-height:1.7;
+
+color:#fff5d0;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.gallery img{
+
+width:150px;
+height:200px;
+
+}
+
+
+.letter-text{
+
+font-size:18px;
+
+}
+
+}
+
+</style>
+
+<!-- Cake Screen -->
+
+<div class="screen" id="cakeScreen">
+
+<h1 class="welcome-title">
+🎂 Make A Beautiful Wish 🎂
+</h1>
+
+<p class="subtitle">
+Close your eyes, make a wish and touch the cake ✨
+</p>
+
+<div class="gift-box" onclick="openCelebration()">
+🎂
+</div>
+
+</div>
+
+
+
+<!-- Celebration Screen -->
+
+<div class="screen" id="celebrationScreen">
+
+<h1 class="welcome-title">
+🎆 Grand Royal Celebration 🎆
+</h1>
+
+<div class="balloons">
+🎊 🎉 💐 🎀 ✨ 🌸 🧿
+</div>
+
+
+<p class="subtitle">
+
+Today is a celebration of a beautiful soul, a wonderful smile and a heart full of happiness 💗
+
+</p>
+
+
+<button class="magic-btn" onclick="openSecret()">
+
+Read The Secret Kept In My Heart 💗
+
+</button>
+
+</div>
+
+
+
+<!-- Final Secret Screen -->
+
+<div class="screen" id="secretScreen">
+
+<h1 class="welcome-title">
+💗 The Secret 💗
+</h1>
+
+
+<div class="letter">
+
+<p class="letter-text">
+
+This was never just a birthday website...
+
+It was a little world created with care, happiness and beautiful memories 💐✨
+
+Because some people are so special that a simple Happy Birthday feels too small 🌸💗
+
+May your life always shine like the brightest star in the sky ⭐
+
+Happy Birthday Princess Pari 👑🎀
+
+</p>
+
+</div>
+
+
+<div class="balloons">
+💐 🎀 🧿 💗 ✨ 🥳 🎉 🎊 🤌 🌸
+</div>
+
+</div>
+
+
+
+<script>
+
+
+// Loading Complete
+
+setTimeout(() => {
+
+document.getElementById("loading").style.display="none";
+
+document.getElementById("welcome").style.display="flex";
+
+},5000);
+
+
+
+
+// Navigation Functions
+
+
+function openHeart(){
+
+hideAll();
+
+document.getElementById("heartScreen").style.display="flex";
+
+}
+
+
+function openGift(){
+
+hideAll();
+
+document.getElementById("giftScreen").style.display="flex";
+
+}
+
+
+function openBalloon(){
+
+hideAll();
+
+document.getElementById("balloonScreen").style.display="flex";
+
+}
+
+
+function openGallery(){
+
+hideAll();
+
+document.getElementById("galleryScreen").style.display="flex";
+
+}
+
+
+function openLetter(){
+
+hideAll();
+
+document.getElementById("letterScreen").style.display="flex";
+
+}
+
+
+function openCake(){
+
+hideAll();
+
+document.getElementById("cakeScreen").style.display="flex";
+
+}
+
+
+function openCelebration(){
+
+hideAll();
+
+document.getElementById("celebrationScreen").style.display="flex";
+
+}
+
+
+function openSecret(){
+
+hideAll();
+
+document.getElementById("secretScreen").style.display="flex";
+
+}
+
+
+
+// Hide all screens
+
+
+function hideAll(){
+
+let screens = document.querySelectorAll(".screen");
+
+screens.forEach(screen => {
+
+screen.style.display="none";
+
+});
+
+}
+
+
+</script>
+
+
+</body>
+
+  </html>
